@@ -121,4 +121,39 @@ header{
     max-width: 900px;
     margin: 0 auto;
 }
+.sales-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.sales-head div{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10%;
+}
+.sales-head div h2{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    margin-right: 10px;
+}
+.form-control{
+    background: #1B2531;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    margin: auto;
+}
+#result{
+    display: flex;
+    justify-content: center;
+    background: #1B2531;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    margin: auto;
+}
 
