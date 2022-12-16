@@ -1,6 +1,13 @@
 import './styles.css'
+import React from "react";
+
+
 
 function CardVendas() {
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+            
+    
     return (
         <>
             <section id="sales">
@@ -9,7 +16,9 @@ function CardVendas() {
                         <div className="sales-head">
                             <div className="sales-head-info">
                                 <h2> Vendas do dia: </h2>
-                                <input className="form-control" type="text" name="" id="" placeholder="13/12/2022"/>
+                                <div>
+                                    <h2 className='form-control'> {date}</h2>
+                                </div>
                             </div>
                             <div className="sales-head-info">
                                 <h2> Total em Vendas: </h2>

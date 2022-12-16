@@ -12,28 +12,33 @@
 .sales-head{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .sales-head div{
     display: flex;
     flex-direction: row;
-    margin-right: 10%;
+    margin-right: 0%;
 }
 .sales-head div h2{
     font-weight: 700;
     font-size: 20px;
     line-height: 28px;
-    margin-right: 10px;
+    margin-right: 0px;
 }
-.form-control{
-    background: #1B2531;
-    width: 200px;
-    height: 30px;
-    border: 1px solid #384459;
-    border-radius: 5px;
-    margin: auto;
-}
+
+    
+    .form-control{
+        display: flex;
+        background: #1B2531;
+        width: 130px;
+        height: 30px;
+        border: 1px solid #384459;
+        border-radius: 5px;
+        margin-right: 20px;
+        justify-content: center;
+    }
+
 #result{
     display: flex;
     justify-content: center;
@@ -62,4 +67,13 @@
 }
 .sales-table tbody tr:nth-child(odd){
     background-color: #182720;
+}
+.date-picker{
+    width: 100%;
+    
+    background-color: #1b2531;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    color: #9aaabe;
+    
 }
