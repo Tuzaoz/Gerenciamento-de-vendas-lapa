@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import Header from './components/header'
 import ButtonRow from './components/buttons row'
-import CardVendas from './components/cardvenda'
+import CardVendas from './components/cardvenda-hoje'
 
 function App() {
   

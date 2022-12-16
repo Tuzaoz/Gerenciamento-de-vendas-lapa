@@ -3,6 +3,8 @@ package com.agrovetlapa.lapabackend.controller;
 import com.agrovetlapa.lapabackend.entities.Venda;
 import com.agrovetlapa.lapabackend.services.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +24,8 @@ public class VendaController {
         return ResponseEntity.ok().body(list);
     }
     @GetMapping(value = "/hoje")
-    public ResponseEntity<List<Venda>> findHoje(){
-        List<Venda> list = vendaService.findTodayDate();
+    public ResponseEntity<Page<Venda>> findHoje(Pageable pageable){
+        Page<Venda> list = vendaService.findTodayDate(pageable);
         return ResponseEntity.ok().body(list);
     }
 }

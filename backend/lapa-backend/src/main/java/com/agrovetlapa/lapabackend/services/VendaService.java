@@ -5,6 +5,7 @@ import com.agrovetlapa.lapabackend.repositories.VendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -19,8 +20,8 @@ public class VendaService {
         return vendaRepository.findAll();
     }
 
-    public List<Venda> findTodayDate(){
-        return vendaRepository.findTodaySales();
+    public Page<Venda> findTodayDate(Pageable pageable){
+        return vendaRepository.findTodaySales(pageable);
     }
 }
 

@@ -1,12 +1,22 @@
 import './styles.css'
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { Venda } from '../../models/venda';
 
 
 
 function CardVendas() {
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-            
+    const[vendas, setVendas] = useState<Venda[]>([]);
+    useEffect(()=>{
+        axios.get("http://localhost:8080/vendas/hoje")
+            .then(response =>{
+                setVendas(response.data.content)
+                
+            })
+
+    },[])
     
     return (
         <>
@@ -37,30 +47,19 @@ function CardVendas() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>João da Silva</td>
-                                    <td>CatChow</td>
-                                    <td>Granel</td>
-                                    <td>Cartão</td>
-                                    <td>R$ 10.00</td>
-                                    <td>imagem</td>
-                                </tr>
-                                <tr>
-                                    <td>João da Silva</td>
-                                    <td>CatChow</td>
-                                    <td>Granel</td>
-                                    <td>Cartão</td>
-                                    <td>R$ 10.00</td>
-                                    <td>imagem</td>
-                                </tr>
-                                <tr>
-                                    <td>João da Silva</td>
-                                    <td>CatChow</td>
-                                    <td>Granel</td>
-                                    <td>Cartão</td>
-                                    <td>R$ 10.00</td>
-                                    <td>imagem</td>
-                                </tr>
+                                {vendas.map(venda => {
+                                    return( 
+                                    <tr key={venda.id}>
+                                        <td>{venda.nomeCliente}</td>
+                                        <td>{venda.produto}</td>
+                                        <td>Granel</td>
+                                        <td>Cartão</td>
+                                        <td>R$ {venda.valor}</td>
+                                        <td>imagem</td>
+                                    </tr>
+                                    )
+                                })}
+                               
                             </tbody>
                         </table>
                     </div>
