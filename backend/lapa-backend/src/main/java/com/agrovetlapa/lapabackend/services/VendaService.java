@@ -23,5 +23,9 @@ public class VendaService {
     public Page<Venda> findTodayDate(Pageable pageable){
         return vendaRepository.findTodaySales(pageable);
     }
+
+    public Double totalDia(){
+        return vendaRepository.totalDia();
+    }
 }
 

@@ -1,6 +1,7 @@
 package com.agrovetlapa.lapabackend.controller;
 
 import com.agrovetlapa.lapabackend.entities.Venda;
+import com.agrovetlapa.lapabackend.entities.VendaResponse;
 import com.agrovetlapa.lapabackend.services.VendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,9 +24,17 @@ public class VendaController {
         List<Venda> list = vendaService.findAll();
         return ResponseEntity.ok().body(list);
     }
-    @GetMapping(value = "/hoje")
+
     public ResponseEntity<Page<Venda>> findHoje(Pageable pageable){
         Page<Venda> list = vendaService.findTodayDate(pageable);
         return ResponseEntity.ok().body(list);
     }
+    @GetMapping(value = "/hoje")
+    public ResponseEntity<VendaResponse> dadosHoje(Pageable pageable){
+        Page<Venda> list = vendaService.findTodayDate(pageable);
+        Double valor = vendaService.totalDia();
+        VendaResponse response = new VendaResponse(list,valor);
+        return ResponseEntity.ok().body(response);
+    }
+
 }

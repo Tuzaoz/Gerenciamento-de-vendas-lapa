@@ -1,13 +1,14 @@
 
 INSERT INTO venda (data, nome_cliente, produto, valor)
 VALUES
-    ('2022-12-15', 'Vincent van Gogh', 'Product 1', 100.00),
-    ('2022-12-15', 'Pablo Picasso', 'Product 2', 200.00),
-    ('2022-12-15', 'Leonardo da Vinci', 'Product 3', 300.00),
-    ('2022-12-16', 'Frida Kahlo', 'Product 4', 400.00),
-    ('2022-12-16', 'Salvador Dali', 'Product 5', 500.00),
-    ('2022-12-16', 'John Singer Sargent', 'Product 6', 600.00),
-    ('2022-12-17', 'Georgia O''Keeffe', 'Product 7', 700.00),
-    ('2022-12-17', 'Jackson Pollock', 'Product 8', 800.00),
-    ('2022-12-17', 'Claude Monet', 'Product 9', 900.00),
-    ('2022-12-17', 'Edvard Munch', 'Product 10', 1000.00);
+    ('2022-12-18', 'Lionel Messi', 'Soccer ball', 15.99),
+    ('2022-12-19', 'Cristiano Ronaldo', 'Soccer cleats', 59.99),
+    ('2022-12-20', 'Neymar Jr', 'Soccer jersey', 39.99),
+    ('2022-12-18', 'Robert Lewandowski', 'Soccer socks', 9.99),
+    ('2022-12-19', 'Kevin De Bruyne', 'Soccer shinguards', 24.99),
+    ('2022-12-20', 'Harry Kane', 'Soccer gloves', 39.99),
+    ('2022-12-18', 'Kylian Mbappé', 'Soccer bag', 49.99),
+    ('2022-12-19', 'Sergio Agüero', 'Soccer backpack', 79.99),
+    ('2022-12-20', 'Paul Pogba', 'Soccer keychain', 5.99),
+    ('2022-12-18', 'Mohamed Salah', 'Soccer poster', 14.99);
+
