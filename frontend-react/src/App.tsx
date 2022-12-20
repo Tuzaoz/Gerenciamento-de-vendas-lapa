@@ -4,13 +4,15 @@ import './App.css'
 import Header from './components/header'
 import ButtonRow from './components/buttons row'
 import CardVendas from './components/cardvenda-hoje'
+import PopupVenda from './components/cadastro venda'
 
 function App() {
-  
+  const[abrirVenda, setAbrirVenda] = useState(false);
   return (
     <>
+    {abrirVenda && <PopupVenda setAbrirVenda={setAbrirVenda} />}
     <Header/>
-    <ButtonRow/>
+    <ButtonRow setAbrirVenda={setAbrirVenda}/>
     <CardVendas/>
     </>
   )
