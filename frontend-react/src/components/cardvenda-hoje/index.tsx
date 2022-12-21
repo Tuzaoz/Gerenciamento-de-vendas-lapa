@@ -15,7 +15,7 @@ function CardVendas() {
     useEffect(()=>{
         axios.get("http://localhost:8080/vendas/hoje")
             .then(response =>{
-                console.log(response.data.valorTotal)
+                console.log(response.data)
                 setVendas(response.data.vendas.content)
                 setTotals(response.data.valorTotal)
             })
