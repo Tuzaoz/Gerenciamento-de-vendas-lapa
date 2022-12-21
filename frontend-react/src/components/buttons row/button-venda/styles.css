@@ -11,3 +11,8 @@
     margin-bottom :28px;
     cursor: pointer;
 }
+.button-venda { 
+    transition: all .2s ease-in-out; }
+.button-venda:hover{ 
+    transform: scale(1.1); 
+}

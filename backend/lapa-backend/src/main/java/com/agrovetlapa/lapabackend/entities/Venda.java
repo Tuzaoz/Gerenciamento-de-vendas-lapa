@@ -17,16 +17,41 @@ public class Venda implements Serializable {
     private String nomeCliente;
     private LocalDate data;
     private Double valor;
+    private String categoriaProduto;
+    private String metodoPagamento;
 
     public Venda() {
     }
 
-    public Venda(Integer id, String produto, String nomeCliente, LocalDate data, Double valor) {
+
+    public Venda(Integer id, String produto, String nomeCliente, LocalDate data, Double valor, String categoriaProduto, String metodoPagamento) {
         this.id = id;
         this.produto = produto;
         this.nomeCliente = nomeCliente;
         this.data = data;
         this.valor = valor;
+        this.categoriaProduto = categoriaProduto;
+        this.metodoPagamento = metodoPagamento;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getCategoriaProduto() {
+        return categoriaProduto;
+    }
+
+    public void setCategoriaProduto(String categoriaProduto) {
+        this.categoriaProduto = categoriaProduto;
+    }
+
+    public String getMetodoPagamento() {
+        return metodoPagamento;
+    }
+
+    public void setMetodoPagamento(String metodoPagamento) {
+        this.metodoPagamento = metodoPagamento;
     }
 
     public Integer getId() {

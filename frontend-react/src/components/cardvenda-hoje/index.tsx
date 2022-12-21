@@ -56,8 +56,8 @@ function CardVendas() {
                                     <tr key={venda.id}>
                                         <td>{venda.nomeCliente}</td>
                                         <td>{venda.produto}</td>
-                                        <td>Granel</td>
-                                        <td>Cartão</td>
+                                        <td>{venda.categoriaProduto}</td>
+                                        <td>{venda.metodoPagamento}</td>
                                         <td>R$ {venda.valor}</td>
                                         <td>imagem</td>
                                     </tr>

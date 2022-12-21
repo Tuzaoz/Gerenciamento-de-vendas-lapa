@@ -18,11 +18,7 @@ public class TestConfig implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        Venda o1 = new Venda(null,"Ração","João", LocalDate.parse("2019-06-20"),100.00);
-        Venda o2 = new Venda(null,"Vermifugo","Maria", LocalDate.parse("2022-12-15"),100.00);
 
-        vendaRepository.save(o1);
-        vendaRepository.save(o2);
 
 
 

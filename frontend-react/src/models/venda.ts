@@ -4,4 +4,6 @@ export type Venda = {
     nomeCliente: string;
     data: string;
     valor: number;
+    categoriaProduto: string;
+    metodoPagamento: string;
 }
