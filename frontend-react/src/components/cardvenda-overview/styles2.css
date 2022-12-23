@@ -1,0 +1,85 @@
+.sales-card{
+    background-color: #131F19;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-inline: 32px;
+}
+.sales-container{
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.sales-head-overview{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.sales-head-info-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sales-head-info{
+    display: flex;
+    flex-direction: row;
+    margin-right: 0%;
+}
+.sales-head h2{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    margin-right: 0px;
+}
+
+    
+    .form-control{
+        display: flex;
+        background: #1B2531;
+        width: 130px;
+        height: 30px;
+        border: 1px solid #384459;
+        border-radius: 5px;
+        margin-right: 20px;
+        justify-content: center;
+    }
+
+#result{
+    display: flex;
+    justify-content: center;
+    background: #1B2531;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    margin: auto;
+}
+.sales-table{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.sales-table tbody{
+    text-align: center;
+}
+
+.sales-table tbody tr{
+    height: 74px;
+    border-top: 1px solid white ;
+}
+.sales-table tbody tr:hover > td{
+    background-color: #4f7262;
+}
+.sales-table tbody tr:nth-child(odd){
+    background-color: #182720;
+}
+.date-picker{
+    width: 100%;
+    
+    background-color: #1b2531;
+    border: 1px solid #384459;
+    border-radius: 5px;
+    color: #9aaabe;
+    
+}
