@@ -37,7 +37,6 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
       });
       console.log(response);
       const form = event.target;
-      window.location.reload();
       form.submit();
     };
 
@@ -75,7 +74,7 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
                         <option value="Cartão">Cartão</option>
                     </select><br/>
                     <div className='button-cadastro-container'>
-                        <div className="button-cadastro grow" onClick={handleSubmit}>
+                        <div className="button-cadastro" onClick={handleSubmit}>
                             <img className="icon" src={icon} alt="icon plus"/>
                             <h2>Cadastrar</h2>
                         </div>
