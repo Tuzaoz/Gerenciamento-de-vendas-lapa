@@ -1,5 +1,6 @@
-package com.agrovetlapa.lapabackend.entities;
+package com.agrovetlapa.lapabackend.responses;
 
+import com.agrovetlapa.lapabackend.entities.Venda;
 import com.agrovetlapa.lapabackend.services.VendaService;
 import org.springframework.data.domain.Page;
 

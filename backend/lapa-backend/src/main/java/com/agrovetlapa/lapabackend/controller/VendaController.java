@@ -1,8 +1,15 @@
 package com.agrovetlapa.lapabackend.controller;
 
+import com.agrovetlapa.lapabackend.entities.Dia;
 import com.agrovetlapa.lapabackend.entities.Venda;
-import com.agrovetlapa.lapabackend.entities.VendaResponse;
+import com.agrovetlapa.lapabackend.repositories.DiaRepository;
+import com.agrovetlapa.lapabackend.repositories.VendaRepository;
+import com.agrovetlapa.lapabackend.responses.VendaResponse;
 import com.agrovetlapa.lapabackend.services.VendaService;
+import com.agrovetlapa.lapabackend.services.exceptions.NullKeySerializer;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,13 +18,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
+import java.time.LocalDate;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/vendas")
 public class VendaController {
     @Autowired
     private VendaService vendaService;
+    @Autowired
+    private DiaRepository diaRepository;
 
     @GetMapping
     public ResponseEntity<List<Venda>> findAll(){
@@ -41,6 +51,27 @@ public class VendaController {
         venda = vendaService.insert(venda);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(venda.getId()).toUri();
         return ResponseEntity.created(uri).body(venda);
+    }
+    @GetMapping(value = "/visaogeral")
+    public List<Dia> VendasByDateRange(@RequestParam(value="minDate", defaultValue = "") String minDate,
+                                      @RequestParam(value="maxDate", defaultValue = "") String maxDate) {
+        List<Venda> vendas = vendaService.getVendasByDateRange(minDate,maxDate);
+        List<Dia> dias = new ArrayList<>();
+        for (Venda venda:vendas
+        ) {
+            Dia dia = dias.stream().filter(d -> d.getData().equals(venda.getData())).findFirst().orElse(null);
+            if (dia == null) {
+                dia = new Dia();
+                dia.setData(venda.getData());
+                dias.add(dia);
+            }
+
+        }
+        diaRepository.saveAll(dias);
+        return dias;
+
+
+
     }
 
 }
