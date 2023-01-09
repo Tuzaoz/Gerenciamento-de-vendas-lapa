@@ -63,19 +63,28 @@ public class VendaController {
     public List<Dia> VendasByDateRange(@RequestParam(value = "minDate", defaultValue = "") String minDate,
                                        @RequestParam(value = "maxDate", defaultValue = "") String maxDate) {
         List<Venda> vendas = vendaService.getVendasByDateRange(minDate, maxDate);
-        List<Dia> dias = diaService.getDiasByDateRange(minDate,maxDate);
+        List<Dia> dias = new ArrayList<>();
+        diaService.deleteDiasByDataIsBetween(minDate,maxDate);
         for (Venda venda : vendas
         ) {
-            Dia dia = diaRepository.findDiaByData((venda.getData()));
+            Dia dia = dias.stream().filter(d -> d.getData().equals(venda.getData())).findFirst().orElse(null);
             if (dia == null) {
                 dia = new Dia();
                 dia.setData(venda.getData());
                 dias.add(dia);
+
             }
-            dia.setTotalVendasCartao(0.0);
-            dia.setTotalVendasDinheiroPix(0.0);
-            dia.setTotalVendas(0.0);
-            if (venda.getMetodoPagamento().equals("cartão")) {
+            if(dia.getTotalVendasCartao() == null){
+                dia.setTotalVendasCartao(0.0);
+            }
+            if(dia.getTotalVendasDinheiroPix() == null){
+                dia.setTotalVendasDinheiroPix(0.0);
+            }
+            if(dia.getTotalVendas() == null){
+                dia.setTotalVendas(0.0);
+            }
+
+            if (venda.getMetodoPagamento().equals("Cartão")) {
                 dia.setTotalVendasCartao(dia.getTotalVendasCartao() + venda.getValor());
             } else dia.setTotalVendasDinheiroPix(dia.getTotalVendasDinheiroPix() + venda.getValor());
             dia.setTotalVendas(dia.getTotalVendas() + venda.getValor());

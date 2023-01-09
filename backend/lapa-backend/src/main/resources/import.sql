@@ -52,4 +52,5 @@ VALUES
     ('2022-12-16', 'Pix', 'Remédios', 'Antisséptico', 'Thiago Silva', 35),
     ('2022-12-17', 'Dinheiro', 'Ração', 'Ração Poodle', 'Lara Oliveira', 40),
     ('2022-12-18', 'Cartão', 'Brinquedos', 'Bola de futebol', 'Davi Sousa', 15),
-    ('2022-12-19', 'Pix', 'Roupas', 'Camisa de cão', 'Heloisa Rodrigues', 25);
+    ('2022-12-19', 'Pix', 'Roupas', 'Camisa de cão', 'Heloisa Rodrigues', 25),
+    ('2022-12-19', 'dinheiro', 'Roupas', 'Camisa de cão', 'Joao', 25)

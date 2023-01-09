@@ -4,15 +4,13 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 @Entity
 @Table
 public class Dia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private LocalDate data;
     private Double totalVendas;
     private Double totalVendasCartao;
@@ -22,7 +20,7 @@ public class Dia implements Serializable {
     public Dia() {
     }
 
-    public Dia(Integer id, LocalDate data, Double totalVendas, Double totalVendasCartao, Double totalVendasDinheiroPix) {
+    public Dia(Long id, LocalDate data, Double totalVendas, Double totalVendasCartao, Double totalVendasDinheiroPix) {
         this.id = id;
         this.data = data;
         this.totalVendas = totalVendas;
@@ -38,11 +36,11 @@ public class Dia implements Serializable {
         this.data = data;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

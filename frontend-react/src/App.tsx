@@ -9,7 +9,7 @@ import CardVendasOverview from './components/cardvenda-overview'
 
 function App() {
   const[abrirVenda, setAbrirVenda] = useState(false);
-  const[abrirHoje, setAbrirHoje] = useState(false);
+  const[abrirHoje, setAbrirHoje] = useState(true);
   const[abrirOver, setAbrirOver] = useState(false);
   return (
     <>
