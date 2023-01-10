@@ -11,8 +11,11 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
     const [nomeCliente, setNomeCliente] = useState('');
     const [produto, setProduto] = useState('');
     const [valor, setValor] = useState('');
-    const current = new Date();
-    const data = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`;
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const data = `${year}-${month}-${day}`;
     const selectCategoria = React.useRef<HTMLSelectElement>(null);
     const selectPagamento = React.useRef<HTMLSelectElement>(null);
     
@@ -37,6 +40,7 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
       });
       console.log(response);
       const form = event.target;
+      window.location.reload();
       form.submit();
     };
 
@@ -54,9 +58,9 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
                 
                 <form id='formVenda'>
                     <label>Nome do Cliente: </label>
-                    <input type="text" value= {nomeCliente} onChange={(event) => setNomeCliente(event.target.value)}/>
+                    <input className='input-cadastro-venda' type="text" value= {nomeCliente} onChange={(event) => setNomeCliente(event.target.value)}/>
                     <label>Produto Vendido: </label>
-                    <input type="text" name={produto} onChange={(event) => setProduto(event.target.value)}/>
+                    <input className='input-cadastro-venda' type="text" name={produto} onChange={(event) => setProduto(event.target.value)}/>
                     <label>Categoria de Produto: </label>
                     <select id="" ref={selectCategoria}>
                         <option value="Rações">Rações</option>
@@ -66,7 +70,7 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
                         <option value="Inseticidas">Inseticidas</option>
                     </select>
                     <label>Valor: </label>
-                    <input type="text" name={valor} onChange={(event) => setValor(event.target.value)}/><br/>
+                    <input className='input-cadastro-venda' type="text" name={valor} onChange={(event) => setValor(event.target.value)}/><br/>
                     <label>Método de Pagamento: </label>
                     <select id="" ref={selectPagamento}>
                         <option value="Dinheiro">Dinheiro</option>
