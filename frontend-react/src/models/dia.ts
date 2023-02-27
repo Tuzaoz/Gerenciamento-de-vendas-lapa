@@ -1,5 +1,5 @@
 export type Dia = {
-    data: Date
+    data: string
     id: number
     totalVendas: number
     totalVendasCartao: number

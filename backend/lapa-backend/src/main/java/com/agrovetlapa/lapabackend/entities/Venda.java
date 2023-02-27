@@ -14,7 +14,9 @@ public class Venda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String produto;
-    private String nomeCliente;
+    @ManyToOne
+    @JoinColumn(name = "cliente_nome")
+    private Cliente nomeCliente;
     private LocalDate data;
     private Double valor;
     private String categoriaProduto;
@@ -24,7 +26,7 @@ public class Venda implements Serializable {
     }
 
 
-    public Venda(Integer id, String produto, String nomeCliente, LocalDate data, Double valor, String categoriaProduto, String metodoPagamento) {
+    public Venda(Integer id, String produto, Cliente nomeCliente, LocalDate data, Double valor, String categoriaProduto, String metodoPagamento) {
         this.id = id;
         this.produto = produto;
         this.nomeCliente = nomeCliente;
@@ -34,7 +36,7 @@ public class Venda implements Serializable {
         this.metodoPagamento = metodoPagamento;
     }
 
-    public void setNomeCliente(String nomeCliente) {
+    public void setNomeCliente(Cliente nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 
@@ -70,12 +72,8 @@ public class Venda implements Serializable {
         this.produto = produto;
     }
 
-    public String getNomeCliente() {
+    public Cliente getNomeCliente() {
         return nomeCliente;
-    }
-
-    public void setCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
     }
 
 
