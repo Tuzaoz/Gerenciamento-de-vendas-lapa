@@ -14,7 +14,7 @@ const CardVendas: FC<ModalProps> =({setAbrirHoje})=>{
     const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const[vendas, setVendas] = useState<Venda[]>([]);
     const[total, setTotals] = useState(0);
- 
+    /*
     useEffect(()=>{
         axios.get("http://localhost:8080/vendas/hoje")
             .then(response =>{
@@ -24,7 +24,7 @@ const CardVendas: FC<ModalProps> =({setAbrirHoje})=>{
             })
 
     },[])
-    
+    */
     return (
         <>
             <section id="sales">
@@ -53,6 +53,7 @@ const CardVendas: FC<ModalProps> =({setAbrirHoje})=>{
                                     <th>Editar</th>
                                 </tr>
                             </thead>
+                            {/*
                             <tbody>
                                 {vendas.map(venda => {
                                     return( 
@@ -66,8 +67,9 @@ const CardVendas: FC<ModalProps> =({setAbrirHoje})=>{
                                     </tr>
                                     )
                                 })}
-                               
+                            
                             </tbody>
+                            */}
                         </table>
                     </div>
                 </div>
