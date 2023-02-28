@@ -16,7 +16,7 @@ public class Cliente {
     private String nome;
     private String fone;
     @JsonIgnore
-    @OneToMany(mappedBy = "venda")
+    @OneToMany(mappedBy = "nomeCliente")
     private List<Venda> vendas = new ArrayList<>();
 
     public Cliente() {

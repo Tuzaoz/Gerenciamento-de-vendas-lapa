@@ -15,7 +15,7 @@ public class Venda implements Serializable {
     private Integer id;
     private String produto;
     @ManyToOne
-    @JoinColumn(name = "cliente_nome")
+    @JoinColumn(name = "nome")
     private Cliente nomeCliente;
     private LocalDate data;
     private Double valor;
