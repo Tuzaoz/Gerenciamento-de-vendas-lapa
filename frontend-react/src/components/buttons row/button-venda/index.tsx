@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import icon from '../../../assets/plus-svgrepo-com.svg'
-import PopupVenda from '../../cadastro venda';
+
 import './styles.css'
 interface ButtonVendaProps {
     setAbrirVenda: (open: boolean) => void;

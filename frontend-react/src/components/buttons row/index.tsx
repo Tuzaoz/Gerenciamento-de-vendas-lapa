@@ -10,16 +10,17 @@ interface ButtonRowProps {
     setAbrirVenda: (open: boolean) => void;
     setAbrirOver: (open: boolean) => void;
     setAbrirHoje: (open: boolean) => void;
+    setAbrirCliente: (open: boolean) => void;
 }
 
-const ButtonRow: FC<ButtonRowProps> =({setAbrirVenda, setAbrirOver, setAbrirHoje})=>{
+const ButtonRow: FC<ButtonRowProps> =({setAbrirVenda, setAbrirOver, setAbrirHoje, setAbrirCliente})=>{
     return(
         <>
         <section id="buttons">
         <div className="buttons-container">
             <ButtonVenda setAbrirVenda={setAbrirVenda} />
             <ButtonConta/>
-            <ButtonCliente/>
+            <ButtonCliente setAbrirCliente={setAbrirCliente} />
             <ButtonProduto/>
         </div>
         <div className="buttons-container">

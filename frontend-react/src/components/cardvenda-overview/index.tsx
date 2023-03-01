@@ -27,8 +27,8 @@ const CardVendasOverview: FC<ModalProps> =({setAbrirOver})=> {
 
     const [dias, setDias] = useState<Dia[]>([]);
     
+    const day = date.slice(8,10)
     function parseDate(date: string) {
-        const day = date.slice(8,10)
         const month = date.slice(5,7);
         const year = date.slice(0,4);
       
