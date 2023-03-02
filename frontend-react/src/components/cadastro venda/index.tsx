@@ -19,8 +19,9 @@ interface SaleForm {
 
 const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
     
-    const [cliente, setCliente] = useState<string[]>([]);
-    const [selectedOption, setSelectedOption] = useState<string>();
+    const [cliente, setCliente] = useState<Cliente[]>([]);
+    const [valorSelecionado, setValorSelecionado] = useState('');
+    const [customerName, setcustomerName] = useState();
     const [formData, setFormData] = useState<SaleForm>({
         customerName: '',
         produto: '',
@@ -35,29 +36,33 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
     const data = `${year}-${month}-${day}`;
     const selectCategoria = React.useRef<HTMLSelectElement>(null);
     const selectPagamento = React.useRef<HTMLSelectElement>(null);
+
     useEffect(() => {
         
         axios.get(`http://localhost:8080/cliente`)
           .then(response => {
             console.log(response);
-            const nomesArray = response.data.map((obj: Cliente) => obj.nome);
-            console.log(nomesArray)
-            setCliente(nomesArray);
-            console.log(cliente)})
+            setCliente(response.data);
+            console.log(cliente)
+            })
           .catch(error => console.log(error));
      
     }, []);
-    const nomesContatos = cliente.map(cliente => cliente);
-    const opcoesSelect = nomesContatos.map((nome) => ({ value: nome, label: nome }));
-    console.log(opcoesSelect)
 
+    const opcoesSelect = cliente.map((cliente) => ({ value: cliente.id, label: cliente.nome }));
+    console.log(opcoesSelect)
     const handleSubmit = (event: { target: any; }) => {
+        const clientefinal = cliente.find(cliente => cliente.id === customerName)
         const selectedValueCateg = selectCategoria.current!.value;
         const selectedValuePag = selectPagamento.current!.value;
         const response = axios.post('http://localhost:8080/vendas/hoje', {
         
         produto: formData.produto,
-        nomeCliente: formData.customerName,
+        nomeCliente: {
+            id: clientefinal?.id,
+            nome: clientefinal?.nome,
+            fone: clientefinal?.fone
+        },
         data: data,
         valor: formData.value,
         categoriaProduto: selectedValueCateg,
@@ -91,8 +96,7 @@ const PopupVenda: FC<ModalProps> =({setAbrirVenda})=>{
                 <form id='formVenda'>
                     
                     <label>Nome do Cliente: </label>                    
-                    <Select options={opcoesSelect} className='input-cadastro-venda'/>
-                    
+                    <Select options={opcoesSelect} className='input-cadastro-venda' onChange = {(event: any) => {setcustomerName(event.value)}}/>
                     <label>Produto Vendido: </label>
                     <input className='input-cadastro-venda' type="text" value={formData.produto} onChange={(event) => setFormData({ ...formData, produto: event.target.value })}/>
                     

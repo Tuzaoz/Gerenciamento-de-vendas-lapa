@@ -10,8 +10,7 @@ interface ModalProps {
 
 const PopupCliente: FC<ModalProps> =({setAbrirCliente})=>{
     const [nomeCliente, setNomeCliente] = useState('');
-    const [produto, setProduto] = useState('');
-    const [valor, setValor] = useState('');
+    const [fone, setFone] = useState('');
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
@@ -21,11 +20,9 @@ const PopupCliente: FC<ModalProps> =({setAbrirCliente})=>{
     
     const handleSubmit = (event: { target: any; }) => {
         
-        const response = axios.post('http://localhost:8080/vendas/hoje', {
-        
-        produto: produto,
-        nomeCliente: nomeCliente,
-
+        const response = axios.post('http://localhost:8080/cliente', {
+        nome: nomeCliente,
+        fone: fone,
        })
       .then(res => {
         console.log(res);
@@ -61,7 +58,7 @@ const PopupCliente: FC<ModalProps> =({setAbrirCliente})=>{
                     ' type="text" value= {nomeCliente} onChange={(event) => setNomeCliente(event.target.value)}/>
                     <label>Telefone: </label>
                     <input className='input-cadastro-cliente
-                    ' type="text" name={produto} onChange={(event) => setProduto(event.target.value)}/>
+                    ' type="text" name={fone} onChange={(event) => setFone(event.target.value)}/>
                     <div className='button-cadastro-container'>
                         <div className="button-cadastro" onClick={handleSubmit}>
                             <img className="icon" src={icon} alt="icon plus"/>
